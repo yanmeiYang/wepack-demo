@@ -1,0 +1,25 @@
+[
+  {
+    "action": "search",
+    "parameters": {
+      "query": "dm",
+      "offset": 0,
+      "size": 0,
+      "searchType": "all",
+      "switches": ["intell_search_abbr", "intell_search_kg", "lang_zh"],
+      "advquery": {
+        "texts": [
+          { "text": "Diabetes Mellitus", "source": "abbr" },
+          { "text": "糖尿病", "source": "translated" }
+        ]
+      }
+    },
+    "schema": {
+      "person": ["id","name","name_zh","avatar","tags",
+        { "profile": ["position", "affiliation", "org"] },
+        {"indices": ["hindex","gindex","pubs","citations","newStar","risingStar","activity","diversity","sociability"]},
+        "tags_translated_zh"
+      ]
+    }
+  }
+]
