@@ -3,6 +3,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // 自动清理dist文件
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const webpack = require('webpack');
 
 //  入口entry, 出口output, loader, 插件plugins，模式， 浏览器兼容性
 
@@ -10,32 +11,37 @@ module.exports = {
   // entry: "./src/index.js",
   entry: {
     app: "./src/index.js",
-    print: "./src/print.js"
+    // print: "./src/print.js"
   },
   devtool: "inline-source-map",
-  // devServer: {
-  //   contentBase: './dist'
-  // },
+  devServer: {
+    contentBase: './dist',
+    hot: true
+  },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
       title: "Output Management"
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   output: {
     // filename: "main.js",
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath:'/'
-  }
-  // module: {
-  //   rules: [
-  //     {
-  //       // 用户标识出应该被对应的loader进行转换的某个或某些文件
-  //       test: /\.css$/,
-  //       // 表示进行转换时，应该使用哪个loader
-  //       use: ["style-loader", "css-loader"]
-  //     },
+    // publicPath:'/'
+  },
+  // development 
+  // mode:"development",
+  mode: "production",
+  module: {
+    rules: [
+      {
+        // 用户标识出应该被对应的loader进行转换的某个或某些文件
+        test: /\.css$/,
+        // 表示进行转换时，应该使用哪个loader
+        use: ["style-loader", "css-loader"]
+      },
   //     {
   //       test: /\.(png|svg|jpg|gif)$/,
   //       use: ["file-loader"]
@@ -52,6 +58,6 @@ module.exports = {
   //       test: /\.xml/,
   //       use: ["xml-loader"]
   //     }
-  //   ]
-  // }
+    ]
+  }
 };

@@ -1,5 +1,7 @@
 {
   "name": "GYang",
+  // 也可以改为数组，文件相对或者绝对路径
+  "sideEffects": false,
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -7,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --open",
-    "server":"node server.js",
+    "server": "node server.js",
     "build": "webpack"
   },
   "keywords": [],
