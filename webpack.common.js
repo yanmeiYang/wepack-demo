@@ -3,27 +3,19 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 // 自动清理dist文件
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const webpack = require('webpack');
 
 //  入口entry, 出口output, loader, 插件plugins，模式， 浏览器兼容性
-
 module.exports = {
   // entry: "./src/index.js",
   entry: {
     app: "./src/index.js",
     // print: "./src/print.js"
   },
-  devtool: "inline-source-map",
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
       title: "Output Management"
-    }),
-    new webpack.HotModuleReplacementPlugin()
+    })
   ],
   output: {
     // filename: "main.js",
@@ -31,9 +23,6 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     // publicPath:'/'
   },
-  // development 
-  // mode:"development",
-  mode: "production",
   module: {
     rules: [
       {
