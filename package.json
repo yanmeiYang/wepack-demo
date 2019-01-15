@@ -1,6 +1,5 @@
 {
   "name": "GYang",
-  // 也可以改为数组，文件相对或者绝对路径
   "sideEffects": false,
   "version": "1.0.0",
   "description": "",
