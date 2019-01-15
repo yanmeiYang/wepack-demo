@@ -1,4 +1,4 @@
-// import _ from "lodash";
+import _ from "lodash";
 import printMe from "./print.js";
 import "./styles.css";
 import { cube } from "./math.js";
@@ -8,17 +8,19 @@ import { cube } from "./math.js";
 // import Data from './data.xml';
 
 function component() {
-  // let element = document.createElement("div");
-  // var btn = document.createElement("button");
-  // element.innerHTML = _.join(["Hello", "webpack"], " ");
-  // btn.innerHTML = "Click me and check console";
-  // btn.onclick = printMe;
-  // element.appendChild(btn);
+  let element = document.createElement("div");
+  var btn = document.createElement("button");
+  element.innerHTML = _.join(["Hello", "webpack"], " ");
+  btn.innerHTML = "Click me and check console";
+  btn.onclick = printMe;
+  element.appendChild(btn);
   let cube_element = document.createElement("pre");
   cube_element.innerHTML = [
     "Hello webpack!",
     "5 cubed is equal to" + cube(5)
   ].join("\n\n");
+
+  element.appendChild(cube_element);
 
   // element.classList.add('hello');
 
@@ -29,7 +31,7 @@ function component() {
   // element.appendChild(myIcon);
   // console.log(Data);
 
-  return cube_element;
+  return element;
 }
 
 // document.body.appendChild(component());
