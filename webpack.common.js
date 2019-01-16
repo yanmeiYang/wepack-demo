@@ -11,7 +11,7 @@ module.exports = {
   // entry: "./src/index.js",
   entry: {
     app: "./src/index.js",
-    another: "./src/another-module.js"
+    // another: "./src/another-module.js"
   },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
@@ -26,14 +26,16 @@ module.exports = {
   output: {
     // filename: "main.js",
     filename: "[name].bundle.js",
+    // chunkFilename 决定非入口chunk的名称，可以查看output相关文档
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, "dist")
     // publicPath:'/'
   },
-  optimization: {
-    splitChunks: {
-      chunks: "all"
-    }
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: "all"
+  //   }
+  // },
   module: {
     rules: [
       {

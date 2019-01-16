@@ -27,3 +27,8 @@
 - 代码分离是 webpack 中最引人注目的特性之一。此性能能够把代码分离到不同的 bundle 中，然后可以按需加载或并行加载这些文件。代码分离可以用于获取更小的饿 bundle，以及控制资源加载优先级，如果使用合理，会极大影响加载时间。
 
 - css 提取：mini-css-extract-plugin
+
+
+### 其他内容
+- import() 返回一个promise，因此可以和async函数一起使用
+-  webpack --profile --json > stats.json 工程生成json文件
