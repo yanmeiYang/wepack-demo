@@ -16,7 +16,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
-      title: "Output Management"
+      title: "Caching"
     }),
     // TODO 没有成功
     new MiniCssExtractPlugin({
@@ -24,18 +24,21 @@ module.exports = {
     })
   ],
   output: {
-    // filename: "main.js",
-    filename: "[name].bundle.js",
-    // chunkFilename 决定非入口chunk的名称，可以查看output相关文档
-    chunkFilename: '[name].bundle.js',
+    // // filename: "main.js",
+    // filename: "[name].[chunkhash].js",
+    // // chunkFilename 决定非入口chunk的名称，可以查看output相关文档
+    // chunkFilename: '[name].[chunkhash].js',
     path: path.resolve(__dirname, "dist")
     // publicPath:'/'
   },
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: "all"
-  //   }
-  // },
+  optimization: {
+    // 拆分成单独的快
+    splitChunks: {
+      chunks: "all"
+    },
+    // 创建单个运行时bundle
+    runtimeChunk: 'single'
+  },
   module: {
     rules: [
       {
