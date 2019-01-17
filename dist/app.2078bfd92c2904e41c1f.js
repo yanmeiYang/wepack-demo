@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{2:function(e,n,o){"use strict";o.r(n);var t,d,c,l=o(0),i=o.n(l);document.body.appendChild((t=document.createElement("div"),d=document.createElement("button"),c=document.createElement("br"),d.innerHTML="Click me and look at the console!",t.innerHTML=i.a.join(["Hello","webpack"," "]),t.appendChild(c),t.appendChild(d),d.onclick=(e=>o.e(1).then(o.bind(null,1)).then(e=>{console.log("index.js 中import后返回的结果----",e),(0,e.default)()})),t))}},[[2,2,3]]]);
-//# sourceMappingURL=app.2078bfd92c2904e41c1f.js.map

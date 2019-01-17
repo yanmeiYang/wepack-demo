@@ -1,5 +1,5 @@
 import _ from "lodash";
-import printMe from "./print.js";
+// import printMe from "./print.js";
 import "./styles.css";
 import { cube } from "./math.js";
 // import './style.css';
@@ -49,22 +49,24 @@ import { cube } from "./math.js";
 // getComponent().then(component => {
 //   document.body.appendChild(component);
 // });
-function component(){
-  var element = document.createElement('div');
-  var button = document.createElement('button');
-  var br = document.createElement('br');
+function component() {
+  var element = document.createElement("div");
+  var button = document.createElement("button");
+  var br = document.createElement("br");
 
-  button.innerHTML = 'Click me and look at the console!';
-  element.innerHTML = _.join(['Hello','webpack'," "]);
+  button.innerHTML = "Click me and look at the console!";
+  element.innerHTML = _.join(["Hello", "webpack", " "]);
+  // element.onclick = printMe.bind(null, "Hello webpack!");
   element.appendChild(br);
   element.appendChild(button);
 
   // 使用ES6模板的import()方法时，必须只想模块的.default值，因为它才是promise被处理后返回的实际的module对象
-  button.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
-    console.log("index.js 中import后返回的结果----", module);
-    var print = module.default;
-    print();
-  });
+  button.onclick = e =>
+    import(/* webpackChunkName: "print" */ "./print").then(module => {
+      console.log("index.js 中import后返回的结果----", module);
+      var print = module.default;
+      print();
+    });
   return element;
 }
 
