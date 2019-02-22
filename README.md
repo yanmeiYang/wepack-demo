@@ -58,9 +58,9 @@
     }
     ```
 - 安装 react 和 react-dom 模块
-    npm install --save react react-dom
+    `npm install --save react react-dom`
 - 开始开发
-    在/src 中新建一个App.js文件，内容如下：
+    -在/src 中新建一个App.js文件，内容如下：
     ```javascript
         import React from 'react';
 
@@ -79,3 +79,13 @@
 
         export default App;
     ```
+- index.js 写入如下内容；
+    ```javascript
+        import React from 'react';
+        import ReactDOM from 'react-dom';
+        import App from './App';
+        import './index.css';
+
+        ReactDOM.render(<App/>, document.getElementById('root'));
+
+    ```    
