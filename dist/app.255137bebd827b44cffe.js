@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{tjUo:function(e,n,o){"use strict";o.r(n);var t,d,l,c=o("LvDl"),i=o.n(c);document.body.appendChild((t=document.createElement("div"),d=document.createElement("button"),l=document.createElement("br"),d.innerHTML="Click me and look at the console!",t.innerHTML=i.a.join(["Hello","webpack"," "]),t.appendChild(l),t.appendChild(d),d.onclick=(e=>o.e(1).then(o.bind(null,"dSPy")).then(e=>{console.log("index.js 中import后返回的结果----",e),(0,e.default)()})),t))}},[["tjUo",2,3]]]);
-//# sourceMappingURL=app.255137bebd827b44cffe.js.map

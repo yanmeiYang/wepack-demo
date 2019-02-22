@@ -46,3 +46,36 @@
 - hash是build-specific，即每次编译都不同---适用于开发阶段
 - chunhash是chunk-specific，是根据每个chunk的内容计算出的hash---适用于生产
 - chunkhash 文件不做修改，文件名可能会变，也可能不会
+
+### 添加react
+- 安装Babel预设 
+    npm install -D babel-preset-env babel-loader@7 babel-polyfill babel-preset-react
+- 配置.babelrc
+    在项目文件夹的根目录下新建一个.babelrc的文件（Windows下无法直接创建，可以通过将文件命名为.babelrc.达到创建的目的），在文件内输入以下内容：
+    ```javascript
+    {
+        "presets": ["env", "react"]
+    }
+    ```
+- 安装 react 和 react-dom 模块
+    npm install --save react react-dom
+- 开始开发
+    在/src 中新建一个App.js文件，内容如下：
+    ```javascript
+        import React from 'react';
+
+        class App extends React.Component {
+            render() {
+                return <div>
+                    <h1>Hello React & Webpack!</h1>
+                    <ul>
+                        {
+                            ['a', 'b', 'c'].map(name => <li>{`I'm ${name}!`}</li> )
+                        }
+                    </ul>
+                </div>
+            }
+        }
+
+        export default App;
+    ```

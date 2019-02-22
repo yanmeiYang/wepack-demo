@@ -17,13 +17,16 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
-      title: "Caching"
+      template: './src/index.html'
     }),
     // 
-    new webpack.HashedModuleIdsPlugin(),
+    // new webpack.HashedModuleIdsPlugin(),
     // TODO 没有成功
-    new MiniCssExtractPlugin({
-      filename: "demo.css"
+    // new MiniCssExtractPlugin({
+    //   filename: "demo.css"
+    // }),
+    new webpack.ProvidePlugin({
+      _: "lodash"
     })
   ],
   output: {
@@ -31,31 +34,39 @@ module.exports = {
     // filename: "[name].[chunkhash].js",
     // // chunkFilename 决定非入口chunk的名称，可以查看output相关文档
     // chunkFilename: '[name].[chunkhash].js',
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
+    filename: "webpack-numbers.js"
+    // libraryTarget: 'umd',
+    // library: 'webpackNumbers'
     // publicPath:'/'
   },
-  optimization: {
-    // 拆分成单独的快
-    splitChunks: {
-      // chunks: "all",
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all"
-        }
-      }
-    },
-    // 创建单个运行时bundle
-    runtimeChunk: "single"
-  },
+  // optimization: {
+  //   // 拆分成单独的快
+  //   splitChunks: {
+  //     // chunks: "all",
+  //     cacheGroups: {
+  //       vendor: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: "vendors",
+  //         chunks: "all"
+  //       }
+  //     }
+  //   },
+  //   // 创建单个运行时bundle
+  //   runtimeChunk: "single"
+  // },
   module: {
     rules: [
       {
         // 用户标识出应该被对应的loader进行转换的某个或某些文件
-        test: /\.css$/,
+        test: /\.css|\.less$/,
         // 表示进行转换时，应该使用哪个loader
-        use: ["style-loader", "css-loader"]
+        use: ["style-loader", "css-loader", "less-loader"]
+      },
+      {
+        test: /\.js$/,
+        use: 'babel-loader',
+        exclude: /node_modules/
       }
       //     {
       //       test: /\.(png|svg|jpg|gif)$/,

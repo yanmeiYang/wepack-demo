@@ -1,7 +1,49 @@
-import _ from "lodash";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './styles.less';
+
+ReactDOM.render(<App/>, document.getElementById('root'));
+
+// import _ from "lodash";
+// import numRef from "./ref.json";
+// import "./styles.less";
+// function component() {
+//   var element = document.createElement("div");
+//   //  Lodash, now imported by this script
+//   element.innerHTML = _.join(["Hello", "webpack"], " ");
+
+//   var p = document.createElement("p");
+//   p.innerHTML = "Click me and check console";
+//   p.className = "class";
+//   element.appendChild(p);
+//   return element;
+// }
+// document.body.appendChild(component());
+//  library 没有成功
+// export function numToWord(num) {
+//   // TODO reduce 是什么
+//   return _.reduce(
+//     numRef,
+//     (accum, ref) => {
+//       return ref.num === num ? ref.word : accum;
+//     },
+//     ""
+//   );
+// }
+
+// export function wordToNum(word) {
+//   return _.reduce(
+//     numRef,
+//     (accum, ref) => {
+//       return ref.word === word && word.toLowerCase() ? ref.num : accum;
+//     },
+//     -1
+//   );
+// }
 // import printMe from "./print.js";
-import "./styles.css";
-import { cube } from "./math.js";
+// import "./styles.css";
+// import { cube } from "./math.js";
 // import './style.css';
 // // 该图像讲被处理并添加到output目录，并且MyImage 变量讲包含该图像在处理后的最终url。
 // import Icon from './user-solid.png';
@@ -49,28 +91,28 @@ import { cube } from "./math.js";
 // getComponent().then(component => {
 //   document.body.appendChild(component);
 // });
-function component() {
-  var element = document.createElement("div");
-  var button = document.createElement("button");
-  var br = document.createElement("br");
+// function component() {
+//   var element = document.createElement("div");
+//   var button = document.createElement("button");
+//   var br = document.createElement("br");
 
-  button.innerHTML = "Click me and look at the console!";
-  element.innerHTML = _.join(["Hello", "webpack", " "]);
-  // element.onclick = printMe.bind(null, "Hello webpack!");
-  element.appendChild(br);
-  element.appendChild(button);
+//   button.innerHTML = "Click me and look at the console!";
+//   element.innerHTML = _.join(["Hello", "webpack", " "]);
+//   // element.onclick = printMe.bind(null, "Hello webpack!");
+//   element.appendChild(br);
+//   element.appendChild(button);
 
-  // 使用ES6模板的import()方法时，必须只想模块的.default值，因为它才是promise被处理后返回的实际的module对象
-  button.onclick = e =>
-    import(/* webpackChunkName: "print" */ "./print").then(module => {
-      console.log("index.js 中import后返回的结果----", module);
-      var print = module.default;
-      print();
-    });
-  return element;
-}
+//   // 使用ES6模板的import()方法时，必须只想模块的.default值，因为它才是promise被处理后返回的实际的module对象
+//   button.onclick = e =>
+//     import(/* webpackChunkName: "print" */ "./print").then(module => {
+//       console.log("index.js 中import后返回的结果----", module);
+//       var print = module.default;
+//       print();
+//     });
+//   return element;
+// }
 
-document.body.appendChild(component());
+// document.body.appendChild(component());
 // document.body.appendChild(component());
 // let element = component(); // 当print.js 改变重新渲染时，重新获取渲染的元素
 // document.body.appendChild(element);
