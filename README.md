@@ -49,9 +49,9 @@
 
 ### 添加react
 - 安装Babel预设 
-    npm install -D babel-preset-env babel-loader@7 babel-polyfill babel-preset-react
+    `npm install -D babel-preset-env babel-loader@7 babel-polyfill babel-preset-react`
 - 配置.babelrc
-    在项目文件夹的根目录下新建一个.babelrc的文件（Windows下无法直接创建，可以通过将文件命名为.babelrc.达到创建的目的），在文件内输入以下内容：
+    - 在项目文件夹的根目录下新建一个.babelrc的文件（Windows下无法直接创建，可以通过将文件命名为.babelrc.达到创建的目的），在文件内输入以下内容：
     ```javascript
     {
         "presets": ["env", "react"]
