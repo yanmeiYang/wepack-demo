@@ -70,7 +70,7 @@
                 <h1>Hello React & Webpack!</h1>
                 <ul>
                     {
-                        ['a', 'b', 'c'].map(name => <li>{`I'm ${name}!`}</li> )
+                        ['a', 'b', 'c'].map(name => <li key={name}>{`I'm ${name}!`}</li> )
                     }
                 </ul>
             </div>
