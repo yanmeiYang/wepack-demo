@@ -7,6 +7,8 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 // css 提取css等样式文件
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const CopyPlugin = require("copy-webpack-plugin");
+
 //  入口entry, 出口output, loader, 插件plugins，模式， 浏览器兼容性
 module.exports = {
   // entry: "./src/index.js",
@@ -27,7 +29,13 @@ module.exports = {
     // }),
     new webpack.ProvidePlugin({
       _: "lodash"
-    })
+    }),
+    new CopyPlugin([
+      {
+        from: "src/images/",
+        to: "images/"
+      }
+    ])
   ],
   output: {
     // // filename: "main.js",
@@ -65,13 +73,13 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        use: 'babel-loader',
+        use: "babel-loader",
         exclude: /node_modules/
+      },
+      {
+        test: /\.(png|svg|jpe?g|gif|JPG)$/,
+        loader: "url-loader?limit=8192"
       }
-      //     {
-      //       test: /\.(png|svg|jpg|gif)$/,
-      //       use: ["file-loader"]
-      //     },
       //     {
       //       test: /\.(woff|woff2|eot|ttf|oft)$/,
       //       use: ["file-loader"]

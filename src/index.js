@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+// import App from './pages/App';
+import Stars from './pages/stars';
 import './styles.less';
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<Stars/>, document.getElementById('root'));
 
 // import _ from "lodash";
 // import numRef from "./ref.json";
